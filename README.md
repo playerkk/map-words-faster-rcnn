@@ -14,7 +14,7 @@ It is released under the MIT License (as of py-faster-rcnn. Refer to the LICENSE
 
 ### Requirements: software
 
-  See requirements for `Caffe` and `pycaffe` ([Caffe installation instructions](http://caffe.berkeleyvision.org/installation.html))
+  1. See requirements for `Caffe` and `pycaffe` ([Caffe installation instructions](http://caffe.berkeleyvision.org/installation.html))
 
   **Note:** Caffe *must* be built with support for Python layers!
 
@@ -26,7 +26,8 @@ It is released under the MIT License (as of py-faster-rcnn. Refer to the LICENSE
   ```
 
   There is a 'Makefile.config' provided for the convenience.
-2. Python packages you might not have: `cython`, `python-opencv`, `easydict`
+
+  2. Python packages you might not have: `cython`, `python-opencv`, `easydict`
 
 ### Requirements: hardware
 
