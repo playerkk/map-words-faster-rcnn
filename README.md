@@ -14,7 +14,7 @@ It is released under the MIT License (as of py-faster-rcnn. Refer to the LICENSE
 
 ### Requirements: software
 
-1. Requirements for `Caffe` and `pycaffe` (see: [Caffe installation instructions](http://caffe.berkeleyvision.org/installation.html))
+  See requirements for `Caffe` and `pycaffe` ([Caffe installation instructions](http://caffe.berkeleyvision.org/installation.html))
 
   **Note:** Caffe *must* be built with support for Python layers!
 
@@ -25,24 +25,23 @@ It is released under the MIT License (as of py-faster-rcnn. Refer to the LICENSE
   USE_CUDNN := 1
   ```
 
-  You can download my [Makefile.config](http://www.cs.berkeley.edu/~rbg/fast-rcnn-data/Makefile.config) for reference.
+  There is a 'Makefile.config' provided for the convenience.
 2. Python packages you might not have: `cython`, `python-opencv`, `easydict`
 
 ### Requirements: hardware
 
-1. It is strongly recommened to use a morden GPU (e.g., Titan or K40).
+  It is strongly recommened to use a morden GPU (e.g., Titan or K40).
 
-### Installation (sufficient for the demo)
+### Installation
 
 1. Clone the repository
   ```Shell
-  # Make sure to clone with --recursive
-  git clone https://github.com/playerkk/map-words-faster-rcnn.git
+  git clone https://github.com/playerkk/map-words-faster-rcnn
   ```
 
 2. Build the Cython modules
-    # We'll call the directory that you cloned this repository `FRCN_ROOT`. 
     ```Shell
+    # We'll call the directory that you cloned this repository `FRCN_ROOT`. 
     cd $FRCN_ROOT/lib
     make
     ```
@@ -58,7 +57,7 @@ It is released under the MIT License (as of py-faster-rcnn. Refer to the LICENSE
     make -j8 && make pycaffe
     ```
 
-4. Download pre-computed Faster R-CNN detectors
+4. Download the pre-computed Faster R-CNN detector
     ```Shell
     cd $FRCN_ROOT
     ./pre-trained-models/fetch_pre_trained_models.sh
@@ -75,4 +74,7 @@ To run the demo
 cd $FRCN_ROOT
 ./tools/demo.py
 ```
-The demo performs words detection using a pre-trained VGG16 network.
+The demo performs words detection using a pre-trained VGG16 network. By default, it will use the first GPU on your machine. You can use the '--gpu' flag to specify another one. If you don't have a GPU, you can run the demo using the CPU
+```Shell
+./toos/demo.py --cpu
+```
