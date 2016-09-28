@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from __future__ import division
 import _init_paths
 from fast_rcnn.config import cfg
@@ -139,11 +141,11 @@ if __name__ == '__main__':
 	crop_h = 500
 	step = 400
 
-    im_dir = 'images'
-    out_dir = 'output'
-    if not os.path.exists(out_dir):
-        os.maedirs(out_dir)
-        
+	im_dir = 'images'
+	out_dir = 'output'
+	if not os.path.exists(out_dir):
+		os.maedirs(out_dir)
+
 	im_names = ['D0090-5242001.tiff']
 
 	# Warmup on a dummy image
@@ -161,7 +163,7 @@ if __name__ == '__main__':
 		scores, boxes = im_detect_sliding_crop(net, im, crop_h, crop_w, step)
 		timer.toc()
 		print ('Detection took {:.3f}s for '
-		       '{:d} object proposals').format(timer.total_time, boxes.shape[0])
+			   '{:d} object proposals').format(timer.total_time, boxes.shape[0])
 
 		dir_name, mat_name = os.path.split(im_name)
 		if not os.path.exists(os.path.join(work_dir, dir_name)):
