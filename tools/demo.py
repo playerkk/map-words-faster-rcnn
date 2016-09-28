@@ -144,7 +144,7 @@ if __name__ == '__main__':
 	im_dir = 'images'
 	out_dir = 'output'
 	if not os.path.exists(out_dir):
-		os.maedirs(out_dir)
+		os.makedirs(out_dir)
 
 	im_names = ['D0090-5242001.tiff']
 
@@ -164,13 +164,6 @@ if __name__ == '__main__':
 		timer.toc()
 		print ('Detection took {:.3f}s for '
 			   '{:d} object proposals').format(timer.total_time, boxes.shape[0])
-
-		dir_name, mat_name = os.path.split(im_name)
-		if not os.path.exists(os.path.join(work_dir, dir_name)):
-			os.makedirs(os.path.join(work_dir, dir_name))
-
-		res = {'boxes': boxes, 'scores': scores}
-		sio.savemat(os.path.join(work_dir, mat_name), res)
 
 		dets = np.hstack((boxes,
 				  scores)).astype(np.float32)
