@@ -79,3 +79,5 @@ The demo performs words detection using a pre-trained VGG16 network. By default,
 ```Shell
 ./toos/demo.py --cpu
 ```
+
+See the detection results in the 'output' folder.

@@ -139,7 +139,12 @@ if __name__ == '__main__':
 	crop_h = 500
 	step = 400
 
-	im_names = ['images/D0090-5242001.tiff']
+    im_dir = 'images'
+    out_dir = 'output'
+    if not os.path.exists(out_dir):
+        os.maedirs(out_dir)
+        
+	im_names = ['D0090-5242001.tiff']
 
 	# Warmup on a dummy image
 	im = 128 * np.ones((300, 500, 3), dtype=np.uint8)
@@ -147,7 +152,7 @@ if __name__ == '__main__':
 		_, _= im_detect(net, im)
 
 	for im_name in im_names:
-		im = cv2.imread(os.path.join(data_dir, im_name))
+		im = cv2.imread(os.path.join(im_dir, im_name))
 
 		# # Detect all object classes and regress object bounds
 		timer = Timer()
@@ -174,4 +179,4 @@ if __name__ == '__main__':
 		dets = dets[keep]
 
 		# vis_detections(im, 'words', dets, CONF_THRESH)
-		save_detections(im, im_name, dets, CONF_THRESH)
+		save_detections(im, os.path.join(out_dir, im_name), dets, CONF_THRESH)
